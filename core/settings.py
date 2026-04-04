@@ -63,12 +63,20 @@ TEMPLATES = [{
 # ── Database ──────────────────────────────────────────────────
 # Uses PostgreSQL on Render via DATABASE_URL env var
 # Falls back to SQLite locally if DATABASE_URL is not set
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+#         conn_max_age=600,
+#     )
+# }
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
-        conn_max_age=600,
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
 
 # ── Auth ──────────────────────────────────────────────────────
 from datetime import timedelta
