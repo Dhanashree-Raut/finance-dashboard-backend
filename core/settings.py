@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'users',
     'finance',
     'dashboard',
+    
 ]
 
 MIDDLEWARE = [
@@ -113,6 +114,18 @@ CORS_ALLOWED_ORIGINS = config(
     'CORS_ALLOWED_ORIGINS',
     default='http://localhost:3000'
 ).split(',')
+
+CORS_ALLOWED_ORIGINS = [
+    "https://finance-dashboard-frontend-8vfp.onrender.com"
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://finance-dashboard-backend-b5t8.onrender.com",
+    "https://finance-dashboard-frontend-8vfp.onrender.com"
+]
+
+CORS_ALLOW_ALL_ORIGINS = True  # for testing
+CORS_ALLOW_CREDENTIALS = True
 
 # ── Static files ──────────────────────────────────────────────
 STATIC_URL  = '/static/'
